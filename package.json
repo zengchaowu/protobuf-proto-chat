@@ -1,8 +1,11 @@
 {
   "name": "zcw-protobuf-proto-chat",
-  "version": "1.0.4",
-  "files": ["protos"],
+  "version": "1.0.5",
+  "files": [
+    "protos"
+  ],
   "scripts": {
+    "prepare": "husky",
     "test": "echo \"Error: no test specified\" && exit 1",
     "sync-version": "node scripts/syncVersion.js",
     "publish:pub.dev": "npm run sync-version && dart pub publish --server=https://pub.dev",
@@ -11,5 +14,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
 }
