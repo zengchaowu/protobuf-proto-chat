@@ -1,0 +1,48 @@
+package chat;
+syntax = "proto3";
+
+// 会话类型
+enum ConversationType {
+    PRIVATE_CHAT = 0; // 单聊
+    PRIVATE_GROUP = 1; // 私有群
+    PUBLIC_GROUP = 2; // 公开群
+    CHAT_ROOM = 3; // 聊天室
+    DEPARTMENT_GROUP = 4; // 部门群
+    COMPANY_GROUP = 5; // 公司群
+}
+
+// 单聊会话信息
+message ConversationInfoPrivateChat {
+    string fromUserId = 1; // 发起者用户ID
+    string toUserId = 2; // 对方用户ID
+}
+
+// 私有群会话信息
+message ConversationInfoPrivateGroup {
+    string name = 1; // 群名称
+    string icon = 2; // 群图标
+}
+
+// 公开群会话信息
+message ConversationInfoPublicGroup {
+    string name = 1; // 群名称
+}
+
+// 聊天室会话信息
+message ConversationInfoChatRoom {
+    string name = 1; // 聊天室名称
+}
+
+// 会话
+message Conversation {
+    string id = 1; // 会话唯一标识符
+    ConversationType type = 2; // 会话类型
+    bool isMuted = 3; // 是否静音
+    bool isPinned = 4; // 是否置顶
+    oneof info {
+        ConversationInfoPrivateChat infoPrivateChat = 5; // 单聊会话信息
+        ConversationInfoPrivateGroup infoPrivateGroup = 6; // 私有群会话信息
+        ConversationInfoPublicGroup infoPublicGroup = 7; // 公开群会话信息
+        ConversationInfoChatRoom infoChatRoom = 8; // 聊天室会话信息
+    }
+}

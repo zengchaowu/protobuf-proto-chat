@@ -1,0 +1,12 @@
+{
+  "name": "zcw-protobuf-proto-chat",
+  "version": "1.0.0",
+  "files": ["protos"],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

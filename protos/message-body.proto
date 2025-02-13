@@ -1,0 +1,18 @@
+package chat;
+syntax = "proto3";
+
+// 文本消息体
+message MessageBodyText {
+    string content = 1; // 消息内容
+    string description = 2; // 消息描述
+}
+
+// 系统消息体
+message MessageBodySystem {
+    string content = 1; // 系统消息内容
+}
+
+// AI 回复消息体
+message MessageBodyAiReply {
+    string content = 1; // AI 回复内容
+}

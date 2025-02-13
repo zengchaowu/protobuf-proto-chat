@@ -1,0 +1,29 @@
+package chat;
+syntax = "proto3";
+
+import "message-body.proto";
+import "conversation.proto";
+
+// 消息类型
+enum MessageType {
+    TEXT = 0; // 文本消息
+    SYSTEM = 1; // 系统消息
+    AI_REPLY = 2; // AI 回复消息
+}
+
+// 消息
+message Message {
+    string id = 1; // 消息唯一标识符
+    MessageType type = 2; // 消息类型
+    int64 timestamp = 3; // 消息发送时间
+
+    string senderId = 4; // 发送者唯一标识符
+    ConversationType conversationType = 5; // 会话类型
+    string conversationId = 6; // 会话唯一标识符
+
+    oneof body {
+        MessageBodyText bodyText = 7; // 文本消息体
+        MessageBodySystem bodySystem = 8; // 系统消息体
+        MessageBodyAiReply bodyAiReply = 9; // AI 回复消息体
+    }
+}

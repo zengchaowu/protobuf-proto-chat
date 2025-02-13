@@ -1,0 +1,17 @@
+package chat;
+syntax = "proto3";
+
+import "message.proto";
+import "conversation.proto";
+
+// 数据库中存储的一条消息记录
+message MessageRecord {
+    Message message = 1; // 消息内容
+    bool isLocalDeleted = 2; // 是否被本地删除
+}
+
+// 数据库中存储的一条会话记录
+message ConversationRecord {
+    Conversation conversation = 1; // 会话信息
+    bool isLocalDeleted = 2; // 是否被本地删除
+}
