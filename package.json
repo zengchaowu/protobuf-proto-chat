@@ -1,10 +1,12 @@
 {
   "name": "zcw-protobuf-proto-chat",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "files": ["protos"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pubsh:pub.dev": "dart pub publish --server=https://pub.dev"
+    "sync-version": "node scripts/syncVersion.js",
+    "publish:pub.dev": "npm run sync-version && dart pub publish --server=https://pub.dev",
+    "publish:npmjs": "npm publish --registry=https://registry.npmjs.org/"
   },
   "keywords": [],
   "author": "",
