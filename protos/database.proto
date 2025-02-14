@@ -1,5 +1,5 @@
-package chat;
 syntax = "proto3";
+package chat;
 
 import "message.proto";
 import "conversation.proto";

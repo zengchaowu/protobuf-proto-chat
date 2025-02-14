@@ -1,5 +1,5 @@
-package chat;
 syntax = "proto3";
+package chat;
 
 // 文本消息体
 message MessageBodyText {
