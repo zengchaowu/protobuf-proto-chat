@@ -9,6 +9,10 @@ enum MessageType {
     TEXT = 0; // 文本消息
     SYSTEM = 1; // 系统消息
     AI_REPLY = 2; // AI 回复消息
+    IMAGE = 3; // 图片消息
+    FILE = 4; // 文件消息
+    VIDEO = 5; // 视频消息
+    AUDIO = 6; // 音频消息
 }
 
 // 消息
@@ -25,5 +29,9 @@ message Message {
         MessageBodyText bodyText = 7; // 文本消息体
         MessageBodySystem bodySystem = 8; // 系统消息体
         MessageBodyAiReply bodyAiReply = 9; // AI 回复消息体
+        MessageBodyImage bodyImage = 10; // 图片消息体
+        MessageBodyFile bodyFile = 11; // 文件消息体
+        MessageBodyVideo bodyVideo = 12; // 视频消息体
+        MessageBodyAudio bodyAudio = 13; // 音频消息体
     }
 }

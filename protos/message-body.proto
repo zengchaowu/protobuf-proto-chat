@@ -1,6 +1,14 @@
 syntax = "proto3";
 package chat;
 
+// 文件信息
+message FileInfo {
+    string mimeType = 1; // 类型
+    string name = 2; // 名称
+    string size = 3; // 大小
+    string hash = 4; // 哈希值
+}
+
 // 文本消息体
 message MessageBodyText {
     string content = 1; // 消息内容
@@ -10,6 +18,37 @@ message MessageBodyText {
 // 系统消息体
 message MessageBodySystem {
     string content = 1; // 系统消息内容
+}
+
+// 图片消息体
+message MessageBodyImage {
+    string url = 1; // 图片地址
+    string thumbnail_url = 2; // 缩略图地址
+    int32 width = 3; // 宽度
+    int32 height = 4; // 高度
+    FileInfo fileInfo = 5; // 文件信息
+}
+
+//  文件消息体
+message MessageBodyFile {
+    string url = 1; // 文件地址
+    FileInfo fileInfo = 2; // 文件信息
+}
+
+// 视频消息体
+message MessageBodyVideo {
+    string url = 1; // 视频地址
+    string thumbnail_url = 2; // 缩略图地址
+    int32 width = 3; // 宽度
+    int32 height = 4; // 高度
+    FileInfo fileInfo = 5; // 文件信息
+}
+
+// 音频消息体
+message MessageBodyAudio {
+    string url = 1; // 音频地址
+    int32 duration = 2; // 时长
+    FileInfo fileInfo = 3; // 文件信息
 }
 
 // AI 回复消息体
