@@ -3,59 +3,28 @@ package chat;
 
 // 会话类型
 enum ConversationType {
-    PRIVATE_CHAT = 0; // 单聊
-    PRIVATE_GROUP = 1; // 私有群
-    PUBLIC_GROUP = 2; // 公开群
-    CHAT_ROOM = 3; // 聊天室
-    DEPARTMENT_GROUP = 4; // 部门群
-    COMPANY_GROUP = 5; // 公司群
+    SINGLE = 1; // 单聊
+    GROUP = 2; // 群聊
 }
 
 // 单聊会话信息
-message ConversationInfoPrivateChat {
+message ConversationInfoSingle {
     string fromUserId = 1; // 发起者用户ID
     string toUserId = 2; // 对方用户ID
 }
 
-// 私有群会话信息
-message ConversationInfoPrivateGroup {
-    string name = 1; // 名称
-    string groupId = 2; // 群id
-}
-
-// 公开群会话信息
-message ConversationInfoPublicGroup {
-    string name = 1; // 名称
-    string groupId = 2; // 群id
-}
-
-// 聊天室会话信息
-message ConversationInfoChatRoom {
-    string name = 1; // 名称
-}
-
-// 部门群会话信息
-message ConversationInfoDepartment {
-    string name = 1; // 名称
-    string groupId = 2; // 群id
-}
-
-// 公司群会话信息
-message ConversationInfoCompany {
+// 群聊会话信息
+message ConversationInfoGroup {
     string name = 1; // 名称
     string groupId = 2; // 群id
 }
 
 // 会话
 message Conversation {
-    string id = 1; // 会话唯一标识符
+    string id = 1; // 唯一标识符
     ConversationType type = 2; // 会话类型
     oneof info {
-        ConversationInfoPrivateChat infoPrivateChat = 3; // 单聊会话信息
-        ConversationInfoPrivateGroup infoPrivateGroup = 4; // 私有群会话信息
-        ConversationInfoPublicGroup infoPublicGroup = 5; // 公开群会话信息
-        ConversationInfoChatRoom infoChatRoom = 6; // 聊天室会话信息
-        ConversationInfoDepartment infoDepartment = 7; // 部门群会话信息
-        ConversationInfoCompany infoCompany = 8; // 公司群会话信息
+        ConversationInfoSingle infoSingle = 3; // 单聊会话信息
+        ConversationInfoGroup infoGroup = 4; // 群聊会话信息
     }
 }

@@ -6,13 +6,13 @@ import "conversation.proto";
 
 // 消息类型
 enum MessageType {
-    TEXT = 0; // 文本消息
-    SYSTEM = 1; // 系统消息
-    AI_REPLY = 2; // AI 回复消息
-    IMAGE = 3; // 图片消息
-    FILE = 4; // 文件消息
-    VIDEO = 5; // 视频消息
-    AUDIO = 6; // 音频消息
+    TEXT = 1; // 文本消息
+    SYSTEM = 2; // 系统消息
+    AI_REPLY = 3; // AI 回复消息
+    IMAGE = 4; // 图片消息
+    FILE = 5; // 文件消息
+    VIDEO = 6; // 视频消息
+    AUDIO = 7; // 音频消息
 }
 
 // 消息

@@ -1,0 +1,51 @@
+syntax = "proto3";
+package chat;
+
+// 群类型
+enum GroupType {
+    PRIVATE = 1; // 私有群
+    PUBLIC = 2; // 公开群
+    CHAT_ROOM = 3; // 聊天室
+    DEPARTMENT = 4; // 部门群
+    COMPANY = 5; // 公司群
+}
+
+// 私有群信息
+message GroupInfoPrivate {
+    string name = 1; // 名称
+}
+
+// 公开群信息
+message GroupInfoPublic {
+    string name = 1; // 名称
+}
+
+// 聊天室信息
+message GroupInfoChatRoom {
+    string name = 1; // 名称
+}
+
+// 部门群信息
+message GroupInfoDepartment {
+    string name = 1; // 名称
+    string departmentId = 2; // 部门id
+}
+
+// 公司群信息
+message GroupInfoCompany {
+    string name = 1; // 名称
+    string companyId = 2; // 公司id
+}
+
+// 群
+message Group {
+    string id = 1; // 唯一标识符
+    GroupType type = 2; // 类型
+    oneof info {
+        GroupInfoPrivate infoPrivate = 3; // 私有群信息
+        GroupInfoPublic infoPublic = 4; // 公开群信息
+        GroupInfoChatRoom infoChatRoom = 5; // 聊天室信息
+        GroupInfoDepartment infoDepartment = 6; // 部门群信息
+        GroupInfoCompany infoCompany = 7; // 公司群信息
+    }
+}
