@@ -19,30 +19,43 @@ message ConversationInfoPrivateChat {
 
 // 私有群会话信息
 message ConversationInfoPrivateGroup {
-    string name = 1; // 群名称
-    string icon = 2; // 群图标
+    string name = 1; // 名称
+    string groupId = 2; // 群id
 }
 
 // 公开群会话信息
 message ConversationInfoPublicGroup {
-    string name = 1; // 群名称
+    string name = 1; // 名称
+    string groupId = 2; // 群id
 }
 
 // 聊天室会话信息
 message ConversationInfoChatRoom {
-    string name = 1; // 聊天室名称
+    string name = 1; // 名称
+}
+
+// 部门群会话信息
+message ConversationInfoDepartment {
+    string name = 1; // 名称
+    string groupId = 2; // 群id
+}
+
+// 公司群会话信息
+message ConversationInfoCompany {
+    string name = 1; // 名称
+    string groupId = 2; // 群id
 }
 
 // 会话
 message Conversation {
     string id = 1; // 会话唯一标识符
     ConversationType type = 2; // 会话类型
-    bool isMuted = 3; // 是否静音
-    bool isPinned = 4; // 是否置顶
     oneof info {
-        ConversationInfoPrivateChat infoPrivateChat = 5; // 单聊会话信息
-        ConversationInfoPrivateGroup infoPrivateGroup = 6; // 私有群会话信息
-        ConversationInfoPublicGroup infoPublicGroup = 7; // 公开群会话信息
-        ConversationInfoChatRoom infoChatRoom = 8; // 聊天室会话信息
+        ConversationInfoPrivateChat infoPrivateChat = 3; // 单聊会话信息
+        ConversationInfoPrivateGroup infoPrivateGroup = 4; // 私有群会话信息
+        ConversationInfoPublicGroup infoPublicGroup = 5; // 公开群会话信息
+        ConversationInfoChatRoom infoChatRoom = 6; // 聊天室会话信息
+        ConversationInfoDepartment infoDepartment = 7; // 部门群会话信息
+        ConversationInfoCompany infoCompany = 8; // 公司群会话信息
     }
 }
